@@ -50,6 +50,14 @@ class MainActivity : AppCompatActivity() {
                 if (selectedItem == "Central/Eastern") {
                     toast("You picked Central/Eastern!")
                     selectedRecyclingDates = recyclingDatesCentralEastern
+
+                    for (date in selectedRecyclingDates) {
+                        println(date)
+                    }
+
+                    val nextRecyclingDate = selectedRecyclingDates.firstOrNull { it > formattedCurrentDate }
+                    nextRecyclingDayTextView.text = nextRecyclingDate //set the next recycling day text
+
                     //check if today is recycling day
                     if (selectedRecyclingDates.contains(formattedCurrentDate)) {
                         recyclingAnswerTextView.text = "YES"
@@ -58,6 +66,14 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     toast("You picked Northern/Southern!")
                     selectedRecyclingDates = recyclingDatesNorthernSouthern
+
+                    for (date in selectedRecyclingDates) {
+                        println(date)
+                    }
+
+                    val nextRecyclingDate = selectedRecyclingDates.firstOrNull { it > formattedCurrentDate }
+                    nextRecyclingDayTextView.text = nextRecyclingDate //set the next recycling day text
+
                     //check if today is recycling day
                     if (selectedRecyclingDates.contains(formattedCurrentDate)) recyclingAnswerTextView.text = "YES" else recyclingAnswerTextView.text = "NO"
                 }
@@ -70,9 +86,10 @@ class MainActivity : AppCompatActivity() {
         //TODO: greater than today's date, set that to be next recycling date
 
         //set the next recycling date
-        val nextRecyclingDate = selectedRecyclingDates.firstOrNull { it > formattedCurrentDate }
-        println(nextRecyclingDate)
-        toast(nextRecyclingDate.toString())
+        //val nextRecyclingDate = selectedRecyclingDates.firstOrNull { it > formattedCurrentDate }
+
+        //val nextRecyclingDate = "11-27-2017"
+
 
 //        fun dateCompare (dateOne: String, dateTwo: String) : Boolean {
 //            if (dateOne > dateTwo) {
@@ -82,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 //
 //        val answer = dateCompare("12-10-17", "12-08-17")
 
-        nextRecyclingDayTextView.text = nextRecyclingDate //set the next recycling day text
+
 
     }
 }
